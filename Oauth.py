@@ -8,6 +8,7 @@ issues = client.issues.find(
     ' Queue: Претензии  AND Assignee: group( value: Developers ) AND Status: "Техническое моделирование", Разработка , Тестирование , "Тестирование завершено" , "Код ревью" , RC , "Готово к релизу" ')
 # print ([issue.key for issue in issues])
 
+print(dir(TrackerClient))
 for issue in issues:
     print(issue.key)
     print(issue.summary)  # Название задачи.
@@ -16,5 +17,5 @@ for issue in issues:
     transitions = issue.transitions.get_all()
     for transition in transitions:
         print(transition)
-        print(issue.updatedAt)
+        print(issue.updatedBy)
     print("")
